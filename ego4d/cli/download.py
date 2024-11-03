@@ -341,7 +341,7 @@ def download_all(
 
     # Note: The download operation will be I/O bound by network bandwidth, not compute
     # bound, so a thread pool executor can be used instead of a process pool executor.
-    with ThreadPoolExecutor(max_workers=8, initializer=initializer) as pool:
+    with ThreadPoolExecutor(max_workers=32, initializer=initializer) as pool:
         results = list(pool.map(download_video, downloads))
 
     return results
